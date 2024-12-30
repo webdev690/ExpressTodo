@@ -18,5 +18,5 @@ app.get("/", router)
 app.post("/create", router)
 app.get("/user/:id", router)
 app.post("/update/:id", router)
-
+app.get("/delete/:user",router)
 app.listen(port)

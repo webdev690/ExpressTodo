@@ -12,7 +12,6 @@ router.post("/create", async (req, res) => {
   res.redirect("/")
 })
 
-router.post("/delete", (req, res) => {})
 router.get("/user/:id", async (req, res) => {
   const user = await User.findOne({ _id: req.params.id })
   res.render("update", { user })
@@ -25,5 +24,9 @@ router.post("/update/:id", async (req, res) => {
     { name: updated },
     { new: true }
   )
+  res.redirect("/")
+})
+router.get("/delete/:user", async (req, res) => {
+  await User.findOneAndDelete({ _id:req.params.user })
   res.redirect("/")
 })
